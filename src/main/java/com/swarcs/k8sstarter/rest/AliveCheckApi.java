@@ -29,7 +29,7 @@ public interface AliveCheckApi {
     @ApiResponse(responseCode = "200")
     @RequestMapping(
             value = "/alive",
-            method = RequestMethod.HEAD)
+            method = {RequestMethod.HEAD, RequestMethod.GET})
     @ResponseStatus(HttpStatus.OK)
     ResponseEntity<Void> alive();
 }

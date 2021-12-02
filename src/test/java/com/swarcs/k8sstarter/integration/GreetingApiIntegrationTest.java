@@ -25,7 +25,7 @@ class GreetingApiIntegrationTest extends BaseIntegrationTest {
     private static final String GREETINGS_ENDPOINT = "/greetings";
 
     /**
-     * The <code>should_Pass_ReturnGreeting_When_NameIsProvided</code> method tests the alive endpoint.
+     * The <code>should_Pass_ReturnGreeting_When_NameIsProvided</code> method tests the "greetings" endpoint.
      *
      * @throws Exception - The exception which may occur in mocking mvc result.
      */
@@ -41,5 +41,23 @@ class GreetingApiIntegrationTest extends BaseIntegrationTest {
                 .andReturn();
         GreetingMessage greetingMessage = (GreetingMessage) mvcResult.getAsyncResult();
         Assertions.assertEquals("Hi test!", greetingMessage.getMessage());
+    }
+
+    /**
+     * The <code>should_Pass_ReturnDefaultGreeting_When_NameIsNotProvided</code> method tests the "greetings" endpoint.
+     *
+     * @throws Exception - The exception which may occur in mocking mvc result.
+     */
+    @Test
+    void should_Pass_ReturnDefaultGreeting_When_NameIsNotProvided() throws Exception {
+        MvcResult mvcResult = mockMvc.perform(
+                        MockMvcRequestBuilders.get(GREETINGS_ENDPOINT)
+                                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                                .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(MockMvcResultHandlers.log())
+                .andExpect(status().is2xxSuccessful())
+                .andReturn();
+        GreetingMessage greetingMessage = (GreetingMessage) mvcResult.getAsyncResult();
+        Assertions.assertEquals("Hi Jack!", greetingMessage.getMessage());
     }
 }
