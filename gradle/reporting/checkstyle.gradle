@@ -1,0 +1,25 @@
+apply plugin: 'checkstyle'
+
+// Defining the checkstyle tool options.
+checkstyle {
+    toolVersion = checkstyleVersion
+    configDirectory = file("$projectDir/etc/checkstyle")
+    sourceSets = [sourceSets.main, sourceSets.test]
+}
+// Defining the checkstyle reports which will be generated.
+tasks.withType(Checkstyle) {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
+
+// Defining the source for checkstyle main.
+checkstyleMain {
+    source = fileTree('src/main/java')
+}
+
+// Defining the source for checkstyle test.
+checkstyleTest {
+    source = fileTree('src/test/java')
+}

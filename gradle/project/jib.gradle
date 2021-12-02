@@ -1,0 +1,13 @@
+jib.container.creationTime = 'USE_CURRENT_TIMESTAMP'
+jib.allowInsecureRegistries(true)
+jib {
+    from {
+        image = "openjdk:17-alpine"
+    }
+    to {
+        image = "localhost:32000/k8sstarter:$version"
+    }
+    container {
+        user = "nobody:nogroup"
+    }
+}

@@ -1,0 +1,35 @@
+// Default tasks which will be executed when wrapper is called without the tasks specified.
+defaultTasks('clean', 'build')
+
+// Default launch script.
+bootJar {
+    launchScript {
+        launchScript()
+    }
+}
+
+// Default source sets.
+sourceSets {
+    main.java.srcDirs = ['src/main/java']
+    test.java.srcDirs = ['src/test/java']
+}
+
+// Building build info for run.
+springBoot {
+    buildInfo()
+}
+
+// Setup for Junit tests.
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "skipped", "failed"
+    }
+}
+
+// Repositories used for this project.
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.spring.io/milestone' }
+    maven { url 'https://repo.spring.io/snapshot' }
+}

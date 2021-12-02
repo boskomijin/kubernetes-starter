@@ -1,0 +1,15 @@
+// Defining the spotbugs tool options.
+spotbugs {
+    ignoreFailures = true
+    toolVersion = spotbugsVersion
+    effort = "max"
+    reportLevel = "low"
+}
+
+// Defining the spotbugs reports which will be generated.
+tasks.matching {task -> task.name.startsWith('spotbugs')}.forEach {
+    it.reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}

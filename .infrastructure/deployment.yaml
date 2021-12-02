@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8sstarter
+  namespace: microservices
+  creationTimestamp: null
+  labels:
+    app: k8sstarter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8sstarter
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: k8sstarter
+    spec:
+      containers:
+      - image: localhost:32000/k8sstarter
+        name: k8sstarter
+        resources:
+          requests:
+            memory: 256M
+            cpu: 2000m
+          limits:
+            memory: 512M
+            cpu: 4000m
+        livenessProbe:
+          initialDelaySeconds: 60
+          httpGet:
+            port: 8080
+            path: /alive
+        readinessProbe:
+          initialDelaySeconds: 15
+          periodSeconds: 5
+          failureThreshold: 1
+          httpGet:
+            port: 8080
+            path: /actuator/health
+

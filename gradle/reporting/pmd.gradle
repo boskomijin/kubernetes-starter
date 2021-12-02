@@ -1,0 +1,17 @@
+apply plugin: 'pmd'
+
+//Defining the pmd tool options.
+pmd {
+    toolVersion = pmdVersion
+    ruleSets = [] //Clears rule set before adding custom!
+    ruleSetConfig = project.resources.text.fromFile('etc/pmd/ruleset.xml')
+    ignoreFailures = true
+    incrementalAnalysis = true
+}
+//Defining the pmd reports which will be generated.
+tasks.withType(Pmd) {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}

@@ -1,0 +1,11 @@
+// Default configurations.
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+// Default spring profile.
+bootRun {
+    args = ["--spring.profiles.active=dev"]
+}

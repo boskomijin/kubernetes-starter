@@ -1,0 +1,43 @@
+plugins {
+	// The spring boot plugin
+	id 'org.springframework.boot' version '2.6.0'
+	// The dependency-management plugin
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	// The java plugin
+	id 'java'
+	// Apply jib plugin
+	id 'com.google.cloud.tools.jib' version '3.0.0'
+	// Spotbugs plugin -> adds support for the spotbugs static bug analysis.
+	id 'com.github.spotbugs' version '4.7.0'
+	// Project report plugin -> adds support for the automatic report creating.
+	id 'project-report'
+	// Build dashboard plugin -> adds support for the static analysis dashboard creation.
+	id 'build-dashboard'
+	// Idea plugin -> adds support for the intellij idea IDE.
+	id 'idea'
+	// Groovy plugin
+	id 'groovy'
+}
+
+// Group and version.
+group = 'com.swarcs'
+version = '0.0.1-SNAPSHOT'
+
+// Code compatibility.
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
+
+// Applying the configurations.
+apply from: "$projectDir/gradle/project/configurations.gradle"
+
+// Applying the dependencies to project.
+apply from: "$projectDir/gradle/project/dependencies.gradle"
+
+// Applying the default setup.
+apply from: "$projectDir/gradle/project/defaults.gradle"
+
+// Applying the code quality checks.
+apply from: "$projectDir/gradle/reporting/reports.gradle"
+
+// Applying the jib docker creation and pushing to microk8s registry.
+apply from: "$projectDir/gradle/project/jib.gradle"

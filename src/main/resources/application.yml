@@ -1,0 +1,16 @@
+# Actuator settings
+management:
+  endpoints:
+    web.exposure:
+      include: info,health
+    enabled-by-default: false
+  endpoint:
+    health:
+      enabled: true
+      show-details: "ALWAYS"
+      defaults-enabled: false
+    info:
+      enabled: true
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: true
