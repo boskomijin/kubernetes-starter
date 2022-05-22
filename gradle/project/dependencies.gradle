@@ -1,12 +1,12 @@
 ext {
     set('checkstyleVersion', '9.0')
-    set('jacocoVersion', '0.8.7')
-    set('pmdVersion', '6.38.0')
-    set('spotbugsVersion', '4.2.2')
-    set('springDocVersion', '1.5.10')
-    set('jacksonDatatypeJsr310', '2.13.0')
-    set('spotBugsAnnotationsVersion', '4.4.1')
-    set('configurationProcessorVersion', '2.5.3')
+    set('jacocoVersion', '0.8.8')
+    set('pmdVersion', '6.45.0')
+    set('spotbugsVersion', '4.7.0')
+    set('springDocVersion', '1.6.8')
+    set('jacksonDatatypeJsr310', '2.13.3')
+    set('spotBugsAnnotationsVersion', '4.7.0')
+    set('configurationProcessorVersion', '2.6.8')
 }
 
 dependencies {

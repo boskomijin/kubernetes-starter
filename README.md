@@ -4,13 +4,13 @@
 
 Spring boot application is developed as starter application which uses:
 * Java 17,
-* Spring boot, version 2.6.0
+* Spring boot, version 2.6.8
 * Added static analyzers (checkstyle, pmd, spotbugs)
 * Added jacoco code coverage
 * Added open doc 3.0 (swagger)
 
 ### Build tools
-* Application is realized with gradle build tool over the gradle wrapper with version 7.3.0.
+* Application is realized with gradle build tool over the gradle wrapper with version 7.4.2.
 
 ### Containers
 * Application is containerized over the jib plugin.
